@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Dj</title>
+        <title>About</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="Dj">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         @include('include.css')
-        <link rel="stylesheet" type="text/css" href="{!! asset('styles/main_styles.css') !!}">
-        <link rel="stylesheet" type="text/css" href="{!! asset('styles/responsive.css') !!}">
+        <link rel="stylesheet" type="text/css" href="{!! asset('styles/about.css') !!}">
+        <link rel="stylesheet" type="text/css" href="{!! asset('styles/about_responsive.css') !!}">
 
     </head>
     <body>
@@ -24,88 +24,36 @@
 
             <!-- Home -->
             <div class="home">
-                <div class="home_slider_container">
-                    <!-- Home Slider -->
-                    <div class="owl-carousel owl-theme home_slider">
-                        <!-- Slide -->
-                        <div class="owl-item">
-                            <div class="background_image" style="background-image:url(images/index.jpg)"></div>
-                            <div class="home_container">
-                                <div class="home_container_inner d-flex flex-column align-items-center justify-content-center">
-                                    <div class="home_content text-center">
-                                        <div class="home_subtitle">New single release</div>
-                                        <div class="home_title"><h1>Love is all around</h1></div>
-                                        <div class="home_link"><a href="#">Listen on Soundcloud</a></div>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="home_inner">
+                    <!-- Image artist: https://unsplash.com/@yoannboyer -->
+                    <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/about.jpg" data-speed="0.8"></div>
+                    <div class="home_container">
+                        <div class="home_content text-center">
+                            <div class="home_subtitle">Just me</div>
+                            <div class="home_title">About</div>
                         </div>
-
-                        <!-- Slide -->
-                        <div class="owl-item">
-                            <div class="background_image" style="background-image:url(images/index.jpg)"></div>
-                            <div class="home_container">
-                                <div class="home_container_inner d-flex flex-column align-items-center justify-content-center">
-                                    <div class="home_content text-center">
-                                        <div class="home_subtitle">New single release</div>
-                                        <div class="home_title"><h1>Love is all around</h1></div>
-                                        <div class="home_link"><a href="#">Listen on Soundcloud</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Slide -->
-                        <div class="owl-item">
-                            <div class="background_image" style="background-image:url(images/index.jpg)"></div>
-                            <div class="home_container">
-                                <div class="home_container_inner d-flex flex-column align-items-center justify-content-center">
-                                    <div class="home_content text-center">
-                                        <div class="home_subtitle">New single release</div>
-                                        <div class="home_title"><h1>Love is all around</h1></div>
-                                        <div class="home_link"><a href="#">Listen on Soundcloud</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>
 
-            <!-- Shows -->
-            <div class="shows">
+            <!-- Discs -->
+            <div class="discs">
                 <div class="container">
-                    <div class="row" style="z-index:10;">
-                        <div class="col">
-                            <div class="section_title_container">
-                                <div class="section_subtitle">Events</div>
-                                <div class="section_title"><h1>Upcoming Shows</h1></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row shows_row">
-                        <!-- Shows List -->
-                        <div class="col-lg-8 order-lg-1 order-2 shows_list_col">
-                            <div class="shows_list_container">
-                                <ul class="shows_list">
-                                    <!-- Show -->
-                                    <li class="d-flex flex-row align-items-center justify-content-start">
-                                        <div><div class="show_date">18/07</div></div>
-                                        <div class="show_info d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-md-start justify-content-center">
-                                            <div class="show_name"><a href="#">Electric Castle Festival</a></div>
-                                            <div class="show_location">Cluj, Romania</div>
+                    <div class="row discs_row">
+                        <!-- Disc -->
+                        <div class="col-xl-4 col-md-6">
+                            <div class="disc">
+                                <a href="single.html">
+                                    <div class="disc_image"><img src="images/disc_6.jpg" alt="https://unsplash.com/@arstyy"></div>
+                                    <div class="disc_container">
+                                        <div>
+                                            <div class="disc_content_6">
+                                                <div class="disc_title">Mixtape</div>
+                                                <div class="disc_subtitle">Music For the People</div>
+                                            </div>
                                         </div>
-                                        <div class="ml-auto"><div class="show_shop trans_200"><a href="#">Buy Tickets</a></div></div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- Shows Image -->
-                        <div class="col-lg-4 order-lg-2 order-1">
-                            <div class="shows_image">
-                                <div class="image_overlay"></div>
-                                <img src="images/shows.jpg" alt="https://unsplash.com/@anthonydelanoix">
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -114,16 +62,11 @@
 
             <!-- Artist -->
             <div class="artist">
+                <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/artist_2.jpg" data-speed="0.8"></div>
                 <div class="container">
                     <div class="row">
-                        <!-- Artist Image -->
-                        <div class="col-lg-4 artist_image_col">
-                            <div class="artist_image">
-                                <img src="images/artist.png" alt="">
-                            </div>
-                        </div>
                         <!-- Artist Content -->
-                        <div class="col-lg-7 offset-lg-1">
+                        <div class="col-lg-7 offset-lg-5">
                             <div class="artist_content">
                                 <div class="section_title_container">
                                     <div class="section_subtitle">Events</div>
@@ -181,12 +124,63 @@
                 </div>
             </div>
 
+            <!-- Milestones -->
+            <div class="milestones">
+                <div class="milestones_container">
+                    <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/milestones.jpg" data-speed="0.8"></div>
+                    <div class="container">
+                        <div class="row milestones_row">
+                            <!-- Milestone -->
+                            <div class="col-xl-3 col-md-6 milestone_col">
+                                <div class="milestone d-flex flex-row align-items-center justify-content-start">
+                                    <div class="milestone_icon"><img src="images/icon_1.svg" alt="https://www.flaticon.com/authors/smashicons"></div>
+                                    <div class="milestone_content">
+                                        <div class="milestone_counter" data-end-value="298" data-sign-after="k">0</div>
+                                        <div class="milestone_text">Albums sold</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Milestone -->
+                            <div class="col-xl-3 col-md-6 milestone_col">
+                                <div class="milestone d-flex flex-row align-items-center justify-content-start">
+                                    <div class="milestone_icon"><img src="images/icon_2.svg" alt="https://www.flaticon.com/authors/smashicons"></div>
+                                    <div class="milestone_content">
+                                        <div class="milestone_counter" data-end-value="183">0</div>
+                                        <div class="milestone_text">Live Concerts</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Milestone -->
+                            <div class="col-xl-3 col-md-6 milestone_col">
+                                <div class="milestone d-flex flex-row align-items-center justify-content-start">
+                                    <div class="milestone_icon"><img src="images/icon_3.svg" alt="https://www.flaticon.com/authors/smashicons"></div>
+                                    <div class="milestone_content">
+                                        <div class="milestone_counter" data-end-value="37">0</div>
+                                        <div class="milestone_text">Awards won</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Milestone -->
+                            <div class="col-xl-3 col-md-6 milestone_col">
+                                <div class="milestone d-flex flex-row align-items-center justify-content-start">
+                                    <div class="milestone_icon"><img src="images/icon_4.svg" alt="https://www.flaticon.com/authors/smashicons"></div>
+                                    <div class="milestone_content">
+                                        <div class="milestone_counter" data-end-value="14">0</div>
+                                        <div class="milestone_text">New Singles</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Footer -->
             @include('include.footer')
 
         </div>
 
             @include('include.js')
-            <script src="{!! asset('js/custom.js') !!}"></script>
+            <script src="{!! asset('js/about.js') !!}"></script>
     </body>
 </html>
