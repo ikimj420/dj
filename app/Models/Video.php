@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentTaggable\Taggable;
 use Laravelista\Comments\Commentable;
 
-class Blog extends Model
+class Video extends Model
 {
     use Taggable;
     use Commentable;

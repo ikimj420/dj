@@ -44,4 +44,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(\App\Models\Blog::class);
     }
+
+    //BelongsTo
+    public function videos()
+    {
+        return $this->hasMany(\App\Models\Video::class);
+    }
 }

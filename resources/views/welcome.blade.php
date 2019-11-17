@@ -73,7 +73,7 @@
             <div class="shows">
                 <div class="container-fluid">
                     @include('include.flash-message')
-                    <div class="col-sm-2 float-left">
+                    <div class="col-sm-2">
                         @include('home.include.add')
                     </div>
                 </div>

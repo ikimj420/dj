@@ -31,6 +31,10 @@ Route::delete('/blog/{blog}', 'BlogsController@destroy');
 //Profile-About
 Route::get('about', 'UsersController@index')->name('users.index');
 Route::patch('/about/{about}', 'UsersController@update');
-//Route::delete('/about/{about}', 'UsersController@destroy');
+//Video
+Route::post('/about', 'VideoController@store');
+Route::get('/video/{video}', 'VideoController@show');
+Route::patch('/video/{video}', 'VideoController@update');
+Route::delete('/video/{video}', 'VideoController@destroy');
 //Show Group Of Tags
 Route::get('/tag/tags/{tag}', 'TagsController@index')->name('tags.index');

@@ -42,28 +42,43 @@
                     <div class="col-sm-2 float-left">
                         @include('users.include.update')
                     </div>
+                    <div class="col-sm-2 float-left">
+                        @include('video.include.add')
+                    </div>
                 </div>
             </div>
 
             <!-- Discs -->
             <div class="discs">
                 <div class="container">
+                    <div class="home_title mb-4">Video</div>
                     <div class="row discs_row">
-                        <!-- Disc -->
-                        <div class="col-xl-4 col-md-6">
-                            <div class="disc">
-                                <a href="single.html">
-                                    <div class="disc_image"><img src="{!! asset('/storage/images/disc_6.jpg') !!}" alt="https://unsplash.com/@arstyy"></div>
-                                    <div class="disc_container">
-                                        <div>
-                                            <div class="disc_content_6">
-                                                <div class="disc_title">Mixtape</div>
-                                                <div class="disc_subtitle">Music For the People</div>
+                        @forelse($video as $v)
+                            <!-- Disc -->
+                            <div class="col-xl-4 col-md-6">
+                                <div class="disc">
+                                    <a href="/video/{!! $v->id !!}">
+                                        <div class="disc_image"><img src="{!! asset('/storage/images/disc_6.jpg') !!}" alt="https://unsplash.com/@arstyy"></div>
+                                        <div class="disc_container">
+                                            <div>
+                                                <div class="disc_content_6">
+                                                    <div class="disc_title">{!! $v->title !!}</div>
+                                                    <div class="disc_subtitle">Music For the People From Me</div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </a>
+                                    </a>
+                                </div>
                             </div>
+                        @empty
+                            <p>
+                                Noting To Show
+                            </p>
+                        @endforelse
+                    </div>
+                    <div class="load_more">
+                        <div>
+                            {!! $video->links() !!}
                         </div>
                     </div>
                 </div>

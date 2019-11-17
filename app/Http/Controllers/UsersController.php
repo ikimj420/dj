@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Video;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,7 +13,8 @@ class UsersController extends Controller
     public function index()
     {
         $user = User::findOrFail(1);
-        return view('users.index', compact('user'));
+        $video = Video::latest()->paginate(9);
+        return view('users.index', compact('user', 'video'));
     }
 
     public function update(Request $request)

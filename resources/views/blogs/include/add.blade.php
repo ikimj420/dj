@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="text" name="tags" placeholder="Tags" class="form-control">
+                        <input type="text" name="blog_tag" placeholder="Tags" class="form-control">
                     </div>
 
                     <div class="form-group">

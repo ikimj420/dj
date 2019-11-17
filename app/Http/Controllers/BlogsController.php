@@ -23,7 +23,7 @@ class BlogsController extends Controller
             return redirect('/');
         }
         //explode tags by ,
-        $tags = explode(',', $request->tags);
+        $tags = explode(',', $request->blog_tag);
         //validate data and create without user and pics
         $blog = Blog::create($this->validateRequest());
         //add auth user
@@ -37,7 +37,7 @@ class BlogsController extends Controller
         $blog->$pics = $filenameToStore;
         //add tags
         $blog->tag($tags);
-        //save blog
+        //save blog in db
         $blog->save();
         return back()->with('success','Blog Created Successfully!');
     }
@@ -54,7 +54,7 @@ class BlogsController extends Controller
             return redirect('/');
         }
         //explode tags by ,
-        $tags = explode(',', $request->tags);
+        $tags = explode(',', $request->blog_tag);
         //save auth user
         $this->User($blog);
         //save picture

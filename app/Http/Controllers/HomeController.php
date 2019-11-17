@@ -64,8 +64,8 @@ class HomeController extends Controller
         $home = Home::findOrFail($id);
         //delete blog
         $home->delete();
-        return redirect(route('welcome'))->with('success','Event Deleted Successfully!');
 
+        return redirect(route('welcome'))->with('success','Event Deleted Successfully!');
     }
 
     private function validateRequest()

@@ -41,7 +41,7 @@
         <div class="container">
             <div class="row">
                 <!-- Blog Posts -->
-                <div class="col-lg-9">
+                <div class="col-lg-12">
                     @if(!empty($blogs))
                         @forelse($blogs as $blog)
                             <div class="blog_posts">
@@ -57,7 +57,7 @@
                                     <div class="blog_post_info">
                                         <ul class="d-flex flex-row align-items-start justify-content-start">
                                             <li>by {!! $blog->user->name !!}</li>
-                                            <li><a href="#">2 Comments</a></li>
+                                            <li><a href="/blog/{!! $blog->id !!}">{!! $blog->comments->count() !!} Comments</a></li>
                                         </ul>
                                     </div>
                                     <div class="blog_post_text">
@@ -71,12 +71,41 @@
                             <p>Noting To Show</p>
                         @endforelse
                     @endif
+                    @if(!empty($blogs))
+                        @forelse($videos as $video)
+                            <div class="blog_posts">
+                                <!-- Blog Post -->
+                                <div class="blog_post">
+                                    <div class="blog_post_date d-flex flex-column align-items-center justify-content-center">
+                                        <div>{!! $video->created_at->monthName !!}</div>
+                                        <div>{!! $video->created_at->day !!}</div>
+                                        <div>{!! $video->created_at->year !!}</div>
+                                    </div>
+                                    <div class="blog_post_image"><img src="{!! asset('/storage/images/blog_1.jpg') !!}" alt="https://unsplash.com/@stevenerixon"></div>
+                                    <div class="blog_post_title"><h2><a href="/video/{!! $video->id !!}">{!! $video->title !!}</a></h2></div>
+                                    <div class="blog_post_info">
+                                        <ul class="d-flex flex-row align-items-start justify-content-start">
+                                            <li>by {!! $video->user->name !!}</li>
+                                            <li><a href="/video/{!! $blog->id !!}">{!! $video->comments->count() !!} Comments</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="blog_post_text">
+                                        <p>
+                                            {!! Str::words($video->desc, 10, ' >>>') !!}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        @empty
+                            <p>Noting To Show</p>
+                        @endforelse
+                    @endif
                 </div>
                 <!-- Sidebar -->
-                <div class="col-lg-3">
+{{--                <div class="col-lg-3">
                     <div class="sidebar">
                         <div class="sidebar_section">
-                            <div class="sidebar_title">Latest News</div>
+                            <div class="sidebar_title">Tags</div>
                             <div class="latest_news_list">
                             @forelse($blogs as $blog)
                                 <!-- Latest News -->
@@ -90,10 +119,23 @@
                                 @empty
                                     <p>Noting To Show</p>
                                 @endforelse
+
+                                @forelse($videos as $video)
+                                <!-- Latest News -->
+                                    <div class="latest_news d-flex flex-row align-items-start justify-content-start">
+                                        <div class="latest_news_image"><img src="{!! asset('/storage/images/blog_1.jpg') !!}" alt="https://unsplash.com/@dannykekspro"></div>
+                                        <div class="latest_news_content">
+                                            <div class="latest_news_date">{!! $video->date !!}</div>
+                                            <div class="latest_news_title"><a href="/video/{!! $video->id !!}">{!! $video->title !!}</a></div>
+                                        </div>
+                                    </div>
+                                @empty
+                                    <p>Noting To Show</p>
+                                @endforelse
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>--}}
             </div>
         </div>
     </div>
