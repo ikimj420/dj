@@ -26,7 +26,7 @@
             <div class="home">
                 <div class="home_inner">
                     <!-- Image artist: https://unsplash.com/@yoannboyer -->
-                    <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/contact.jpg" data-speed="0.8"></div>
+                    <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{!! asset('/storage/images/contact.jpg') !!}" data-speed="0.8"></div>
                     <div class="home_container">
                         <div class="home_content text-center">
                             <div class="home_subtitle">Just Me</div>
@@ -35,6 +35,7 @@
                     </div>
                 </div>
             </div>
+        @include('include.flash-message')
 
             <!-- Contact -->
             <div class="contact">
@@ -44,12 +45,12 @@
                         <div class="col-lg-6">
                             <div class="contact_form_container">
                                 <div class="contact_title">Send me a message</div>
-                                <form action="#" class="contact_form" id="contact_form">
-                                    <input type="text" class="contact_input" placeholder="Name" required="required">
-                                    <input type="email" class="contact_input" placeholder="E-mail" required="required">
-                                    <input type="text" class="contact_input" placeholder="Subject">
-                                    <textarea class="contact_input contact_textarea" placeholder="Message" required="required"></textarea>
-                                    <button class="contact_button">Send Message</button>
+                                <form method="post" action="/contact" class="contact_form" id="contact_form">
+                                    @csrf
+                                    <input name="name" type="text" class="contact_input" placeholder="Name" required="required">
+                                    <input name="email" type="email" class="contact_input" placeholder="E-mail" required="required">
+                                    <textarea name="message" class="contact_input contact_textarea" placeholder="Message" required="required"></textarea>
+                                    <button type="submit" class="contact_button">Send Message</button>
                                 </form>
                             </div>
                         </div>

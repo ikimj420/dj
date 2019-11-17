@@ -721,6 +721,7 @@ section
 .blog_post_text
 {
 	margin-top: 35px;
+    margin-bottom: 35px;
 }
 .load_more
 {
@@ -902,7 +903,7 @@ section
 }
 .jp-state-muted .jp-mute::after
 {
-	content: url(../images/mute_0.png);
+    content: url(../storage/images/mute_0.png);
 }
 .jp-mute:active
 {
@@ -916,7 +917,7 @@ section
 	left: 0;
 	width: 100%;
 	height: 100%;
-	content: url(../images/mute_1.png);
+    content: url(../storage/images/mute_1.png);
 }
 .time_controls
 {

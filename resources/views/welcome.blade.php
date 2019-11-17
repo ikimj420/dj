@@ -29,7 +29,7 @@
                     <div class="owl-carousel owl-theme home_slider">
                         <!-- Slide -->
                         <div class="owl-item">
-                            <div class="background_image" style="background-image:url(images/index.jpg)"></div>
+                            <div class="background_image" style="background-image:url({!! asset('/storage/images/index.jpg') !!})"></div>
                             <div class="home_container">
                                 <div class="home_container_inner d-flex flex-column align-items-center justify-content-center">
                                     <div class="home_content text-center">
@@ -43,7 +43,7 @@
 
                         <!-- Slide -->
                         <div class="owl-item">
-                            <div class="background_image" style="background-image:url(images/index.jpg)"></div>
+                            <div class="background_image" style="background-image:url({!! asset('/storage/images/index.jpg') !!})"></div>
                             <div class="home_container">
                                 <div class="home_container_inner d-flex flex-column align-items-center justify-content-center">
                                     <div class="home_content text-center">
@@ -57,7 +57,7 @@
 
                         <!-- Slide -->
                         <div class="owl-item">
-                            <div class="background_image" style="background-image:url(images/index.jpg)"></div>
+                            <div class="background_image" style="background-image:url({!! asset('/storage/images/index.jpg') !!})"></div>
                             <div class="home_container">
                                 <div class="home_container_inner d-flex flex-column align-items-center justify-content-center">
                                     <div class="home_content text-center">
@@ -68,7 +68,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -105,7 +104,7 @@
                         <div class="col-lg-4 order-lg-2 order-1">
                             <div class="shows_image">
                                 <div class="image_overlay"></div>
-                                <img src="images/shows.jpg" alt="https://unsplash.com/@anthonydelanoix">
+                                <img src="{!! asset('/storage/images/shows.jpg') !!}" alt="https://unsplash.com/@anthonydelanoix">
                             </div>
                         </div>
                     </div>
@@ -119,7 +118,7 @@
                         <!-- Artist Image -->
                         <div class="col-lg-4 artist_image_col">
                             <div class="artist_image">
-                                <img src="images/artist.png" alt="">
+                                <img src="{!! asset('/storage/images/artist.png') !!}" alt="">
                             </div>
                         </div>
                         <!-- Artist Content -->
@@ -133,7 +132,7 @@
                                     <p> In vitae nisi aliquam, scelerisque leo a, volutpat sem. Vivamus rutrum dui fermentum eros hendrerit, id lobortis leo volutpat. Maecenas sollicitudin est in libero pretium interdum. Nullam volutpat dui sem, ac congue purus luctus nec. Curabitur luctus luctus erat, sit amet facilisis quam congue quis. Quisque ornare luctus erat id dignissim. Nullam ac nunc quis ex porttitor luctus.</p>
                                     <p>Integer sed facilisis eros. In iaculis rhoncus velit in malesuada. In hac habitasse platea dictumst. Fusce erat ex, consectetur sit amet ornare suscipit, porta et erat. Donec nec nisi in nibh commodo laoreet. Mauris dapibus justo ut feugiat malesuada. Fusce ultricies ante tortor, non vestibulum est feugiat ut.</p>
                                 </div>
-                                <div class="artist_sig"><img src="images/sig.png" alt=""></div>
+                                <div class="artist_sig"><img src="{!! asset('/storage/images/sig.png') !!}" alt=""></div>
                                 <div class="single_player_container d-flex flex-column align-items-start justify-content-center">
                                     <div class="single_player">
                                         <div id="jplayer_2" class="jp-jplayer"></div>
