@@ -12,7 +12,7 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     // function for create image
-    public function createImage($img_request, $img, $folder){
+    public function createImage($img_request, $img, $folder, $pics){
         if($img_request){
             // Filename with extension
             $filenameWithExt = $img->getClientOriginalName();
@@ -25,7 +25,7 @@ class Controller extends BaseController
             //remove space if exist
             $filenameToStore = str_replace(' ','_', $filenameToStor);
             //save in folder
-            request()->pics->move(public_path('/storage/' . $folder), $filenameToStore);
+            request()->$pics->move(public_path('/storage/' . $folder), $filenameToStore);
         }else{
             $filenameToStore = 'default.svg';
         }
@@ -33,7 +33,7 @@ class Controller extends BaseController
     }
 
     // function for update images
-    public function updateImage($img_request, $img, $folder){
+    public function updateImage($img_request, $img, $folder, $pics){
         if($img_request){
             // Filename with extension
             $filenameWithExt = $img->getClientOriginalName();
@@ -46,7 +46,7 @@ class Controller extends BaseController
             //remove space if exist
             $filenameToStore = str_replace(' ','_', $filenameToStor);
             //save in folder
-            request()->pics->move(public_path('/storage/' . $folder), $filenameToStore);
+            request()->$pics->move(public_path('/storage/' . $folder), $filenameToStore);
         }
         return $filenameToStore;
     }

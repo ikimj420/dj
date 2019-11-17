@@ -40,7 +40,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <!-- Slide -->
                         <div class="owl-item">
                             <div class="background_image" style="background-image:url({!! asset('/storage/images/index.jpg') !!})"></div>
@@ -54,7 +53,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <!-- Slide -->
                         <div class="owl-item">
                             <div class="background_image" style="background-image:url({!! asset('/storage/images/index.jpg') !!})"></div>
@@ -72,13 +70,22 @@
                 </div>
             </div>
 
+            <div class="shows">
+                <div class="container-fluid">
+                    @include('include.flash-message')
+                    <div class="col-sm-2 float-left">
+                        @include('home.include.add')
+                    </div>
+                </div>
+            </div>
+
             <!-- Shows -->
             <div class="shows">
                 <div class="container">
                     <div class="row" style="z-index:10;">
                         <div class="col">
                             <div class="section_title_container">
-                                <div class="section_subtitle">Events</div>
+                                <div class="section_subtitle"></div>
                                 <div class="section_title"><h1>Upcoming Shows</h1></div>
                             </div>
                         </div>
@@ -88,15 +95,21 @@
                         <div class="col-lg-8 order-lg-1 order-2 shows_list_col">
                             <div class="shows_list_container">
                                 <ul class="shows_list">
-                                    <!-- Show -->
-                                    <li class="d-flex flex-row align-items-center justify-content-start">
-                                        <div><div class="show_date">18/07</div></div>
-                                        <div class="show_info d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-md-start justify-content-center">
-                                            <div class="show_name"><a href="#">Electric Castle Festival</a></div>
-                                            <div class="show_location">Cluj, Romania</div>
-                                        </div>
-                                        <div class="ml-auto"><div class="show_shop trans_200"><a href="#">Buy Tickets</a></div></div>
-                                    </li>
+                                    @forelse($homes as $home)
+                                        <!-- Show -->
+                                        <li class="d-flex flex-row align-items-center justify-content-start">
+                                            <div><div class="show_date">{!! $home->date !!}</div></div>
+                                            <div class="show_info d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-md-start justify-content-center">
+                                                <div class="show_name">{!! $home->title !!}</div>
+                                                <div class="show_location">{!! $home->place !!}</div>
+                                            </div>
+                                            <div class="ml-auto"><div class="show_shop trans_200"><a href="{!! $home->url !!} " target="_blank" >Site</a></div></div>
+                                        </li>
+                                    @empty
+                                        <p>
+                                            Noting To Show
+                                        </p>
+                                    @endforelse
                                 </ul>
                             </div>
                         </div>
@@ -118,19 +131,20 @@
                         <!-- Artist Image -->
                         <div class="col-lg-4 artist_image_col">
                             <div class="artist_image">
-                                <img src="{!! asset('/storage/images/artist.png') !!}" alt="">
+                                <img src="{!! asset('/storage/user/'.$user->pics) !!}" alt="">
                             </div>
                         </div>
                         <!-- Artist Content -->
                         <div class="col-lg-7 offset-lg-1">
                             <div class="artist_content">
                                 <div class="section_title_container">
-                                    <div class="section_subtitle">Events</div>
-                                    <div class="section_title"><h1>The Artist</h1></div>
+                                    <div class="section_subtitle"></div>
+                                    <div class="section_title"><h1>{!! $user->name !!}</h1></div>
                                 </div>
                                 <div class="artist_text">
-                                    <p> In vitae nisi aliquam, scelerisque leo a, volutpat sem. Vivamus rutrum dui fermentum eros hendrerit, id lobortis leo volutpat. Maecenas sollicitudin est in libero pretium interdum. Nullam volutpat dui sem, ac congue purus luctus nec. Curabitur luctus luctus erat, sit amet facilisis quam congue quis. Quisque ornare luctus erat id dignissim. Nullam ac nunc quis ex porttitor luctus.</p>
-                                    <p>Integer sed facilisis eros. In iaculis rhoncus velit in malesuada. In hac habitasse platea dictumst. Fusce erat ex, consectetur sit amet ornare suscipit, porta et erat. Donec nec nisi in nibh commodo laoreet. Mauris dapibus justo ut feugiat malesuada. Fusce ultricies ante tortor, non vestibulum est feugiat ut.</p>
+                                   <p>
+                                       {!! $user->bio !!}
+                                   </p>
                                 </div>
                                 <div class="artist_sig"><img src="{!! asset('/storage/images/sig.png') !!}" alt=""></div>
                                 <div class="single_player_container d-flex flex-column align-items-start justify-content-center">

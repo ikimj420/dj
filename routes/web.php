@@ -11,8 +11,13 @@
 |
 */
 Auth::routes();
-
+//Home
 Route::get('/', 'HomeController@index')->name('welcome');
+//Event
+Route::get('/home/{event}', 'HomeController@show');
+Route::post('/', 'HomeController@store');
+Route::patch('/home/{event}', 'HomeController@update');
+Route::delete('/home/{event}', 'HomeController@destroy');
 //Contact
 Route::get('/contact', 'ContactController@index');
 //Send Mail
@@ -23,10 +28,9 @@ Route::post('/blog', 'BlogsController@store');
 Route::get('/blog/{blog}', 'BlogsController@show');
 Route::patch('/blog/{blog}', 'BlogsController@update');
 Route::delete('/blog/{blog}', 'BlogsController@destroy');
-//Profile
-//Route::resource('about', 'ProfileController');
-Route::get('/about', function () {
-    return view('about');
-});
+//Profile-About
+Route::get('about', 'UsersController@index')->name('users.index');
+Route::patch('/about/{about}', 'UsersController@update');
+//Route::delete('/about/{about}', 'UsersController@destroy');
 //Show Group Of Tags
 Route::get('/tag/tags/{tag}', 'TagsController@index')->name('tags.index');

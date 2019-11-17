@@ -36,6 +36,15 @@
                 </div>
             </div>
 
+            <div class="discs">
+                <div class="container-fluid">
+                    @include('include.flash-message')
+                    <div class="col-sm-2 float-left">
+                        @include('users.include.update')
+                    </div>
+                </div>
+            </div>
+
             <!-- Discs -->
             <div class="discs">
                 <div class="container">
@@ -62,7 +71,7 @@
 
             <!-- Artist -->
             <div class="artist">
-                <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{!! asset('/storage/images/artist_2.jpg') !!}" data-speed="0.8"></div>
+                <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{!! asset('/storage/user/'.$user->pics2) !!}" data-speed="0.8"></div>
                 <div class="container">
                     <div class="row">
                         <!-- Artist Content -->
@@ -70,11 +79,12 @@
                             <div class="artist_content">
                                 <div class="section_title_container">
                                     <div class="section_subtitle">Events</div>
-                                    <div class="section_title"><h1>The Artist</h1></div>
+                                    <div class="section_title"><h1>{!! $user->name !!}</h1></div>
                                 </div>
                                 <div class="artist_text">
-                                    <p> In vitae nisi aliquam, scelerisque leo a, volutpat sem. Vivamus rutrum dui fermentum eros hendrerit, id lobortis leo volutpat. Maecenas sollicitudin est in libero pretium interdum. Nullam volutpat dui sem, ac congue purus luctus nec. Curabitur luctus luctus erat, sit amet facilisis quam congue quis. Quisque ornare luctus erat id dignissim. Nullam ac nunc quis ex porttitor luctus.</p>
-                                    <p>Integer sed facilisis eros. In iaculis rhoncus velit in malesuada. In hac habitasse platea dictumst. Fusce erat ex, consectetur sit amet ornare suscipit, porta et erat. Donec nec nisi in nibh commodo laoreet. Mauris dapibus justo ut feugiat malesuada. Fusce ultricies ante tortor, non vestibulum est feugiat ut.</p>
+                                    <p>
+                                        {!! $user->bio !!}
+                                    </p>
                                 </div>
                                 <div class="artist_sig"><img src="{!! asset('/storage/images/sig.png') !!}" alt=""></div>
                                 <div class="single_player_container d-flex flex-column align-items-start justify-content-center">

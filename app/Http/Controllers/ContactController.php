@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Mail\ContactMail;
 use Illuminate\Support\Facades\Mail;
@@ -9,8 +10,10 @@ use Illuminate\Support\Facades\Mail;
 class ContactController extends Controller
 {
 
-    public function index(){
-        return view('contacts.index');
+    public function index()
+    {
+        $user = User::findOrFail(1);
+        return view('contacts.index', compact('user'));
     }
     public function create()
     {

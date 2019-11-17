@@ -1,10 +1,33 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dj</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Dj">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
+    @include('include.css')
+    <link rel="stylesheet" type="text/css" href="{!! asset('styles/single.css') !!}">
+    <link rel="stylesheet" type="text/css" href="{!! asset('styles/single_responsive.css') !!}">
+
+</head>
+<body>
+
+<div class="super_container">
+
+    <!-- Header -->
+@include('include.header')
+
+<!-- Menu -->
+@include('include.menu')
+
+<!-- Single -->
+    <div class="single">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="contact_form_container">
                 <div class="card-header">{{ __('Reset Password') }}</div>
 
                 <div class="card-body">
@@ -40,8 +63,21 @@
                         </div>
                     </form>
                 </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+
+    <!-- Footer -->
+    @include('include.footer')
+
 </div>
-@endsection
+
+@include('include.js')
+<script src="{!! asset('plugins/jPlayer/jplayer.playlist.min.js') !!}"></script>
+<script src="{!! asset('plugins/fit-vids/jquery.fitvids.js') !!}"></script>
+<script src="{!! asset('js/single.js') !!}"></script>
+</body>
+</html>

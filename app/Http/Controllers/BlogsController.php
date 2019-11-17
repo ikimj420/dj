@@ -29,11 +29,12 @@ class BlogsController extends Controller
         //add auth user
         $this->User($blog);
         //add pics
-        $img_request = $request->hasFile('pics');
-        $img = $request->file('pics');
+        $pics = 'pics';
+        $img_request = $request->hasFile($pics);
+        $img = $request->file($pics);
         $folder = 'blog';
-        $filenameToStore = $this->createImage($img_request, $img, $folder);
-        $blog->pics = $filenameToStore;
+        $filenameToStore = $this->createImage($img_request, $img, $folder, $pics);
+        $blog->$pics = $filenameToStore;
         //add tags
         $blog->tag($tags);
         //save blog
@@ -58,16 +59,17 @@ class BlogsController extends Controller
         $this->User($blog);
         //save picture
         $folder = 'blog';
-        $img_request = $request->hasFile('pics');
+        $pics = 'pics';
+        $img_request = $request->hasFile($pics);
         //check for picture
-        if(Request()->hasFile('pics')){
-            $img = Request()->file('pics');
-            if($blog->pics != 'default.svg'){
+        if(Request()->hasFile($pics)){
+            $img = Request()->file($pics);
+            if($blog->$pics != 'default.svg'){
                 // Delete Image
-                Storage::delete('public/'. $folder .'/'.$blog->pics);
+                Storage::delete('public/'. $folder .'/'.$blog->$pics);
             }
-            $filenameToStore = $this->updateImage($img_request, $img, $folder);
-            $blog->pics = $filenameToStore;
+            $filenameToStore = $this->updateImage($img_request, $img, $folder, $pics);
+            $blog->$pics = $filenameToStore;
         }
         //update blog
         $blog->update($this->validateRequest());

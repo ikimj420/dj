@@ -35,7 +35,12 @@
                     </div>
                 </div>
             </div>
-        @include('include.flash-message')
+
+            <div class="contact">
+                <div class="container-fluid">
+                    @include('include.flash-message')
+                </div>
+            </div>
 
             <!-- Contact -->
             <div class="contact">
@@ -65,15 +70,15 @@
                                     <ul>
                                         <li class="d-flex flex-row align-items-start justify-content-start">
                                             <div><div>Address</div></div>
-                                            <div>1481 Creekside Lane Avila Beach, CA 931</div>
+                                            <div>{!! $user->address !!}</div>
                                         </li>
                                         <li class="d-flex flex-row align-items-start justify-content-start">
                                             <div><div>Phone</div></div>
-                                            <div>+53 345 7953 32453</div>
+                                            <div>{!! $user->phones !!}</div>
                                         </li>
                                         <li class="d-flex flex-row align-items-start justify-content-start">
                                             <div><div>E-mail</div></div>
-                                            <div>yourmail@gmail.com</div>
+                                            <div>{!! $user->email !!}</div>
                                         </li>
                                     </ul>
                                 </div>
