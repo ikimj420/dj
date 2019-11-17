@@ -117,7 +117,7 @@
                                             <div class="blog_post_info">
                                                 <ul class="d-flex flex-row align-items-start justify-content-start">
                                                     <li>by {!! $blog->user->name !!}</li>
-                                                    <li><a href="#">2 Comments</a></li>
+                                                    <li><a href="/blog/{!! $blog->id !!}">{!! $blog->comments->count() !!} Comments</a></li>
                                                 </ul>
                                             </div>
                                             <div class="blog_post_text">

@@ -97,6 +97,9 @@ class BlogsController extends Controller
         return request()->validate([
             'title' => 'required|min:4',
             'body' => 'required',
+
+            'video' => 'sometimes',
+            'dj' => 'sometimes',
         ]);
     }
 

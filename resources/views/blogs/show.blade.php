@@ -162,6 +162,15 @@
                 </div>
             </div>
 
+            <div class="video">
+                <div class="container">
+                    @comments([
+                    'model' => $blog,
+                    'approved' => true
+                    ])
+                </div>
+            </div>
+
             <!-- Footer -->
             @include('include.footer')
 
