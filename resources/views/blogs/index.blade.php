@@ -25,12 +25,11 @@
             <!-- Home -->
             <div class="home">
                 <div class="home_inner">
-                    <!-- Image artist: https://unsplash.com/@yoannboyer -->
-                    <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{!! asset('/storage/images/blog.jpg') !!}" data-speed="0.8"></div>
+                    <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{!! asset('/storage/images/blog.svg') !!}" data-speed="0.8"></div>
                     <div class="home_container">
                         <div class="home_content text-center">
-                            <div class="home_subtitle">Just me</div>
-                            <div class="home_title">The Blog</div>
+                            <div class="home_subtitle"></div>
+                            <div class="home_title">Blog</div>
                         </div>
                     </div>
                 </div>
@@ -61,7 +60,7 @@
                                                 <div>{!! $blog->created_at->day !!}</div>
                                                 <div>{!! $blog->created_at->year !!}</div>
                                             </div>
-                                            <div class="blog_post_image"><img src="{!! asset('/storage/blog/'.$blog->pics) !!}" alt="https://unsplash.com/@stevenerixon"></div>
+                                            <a href="/blog/{!! $blog->id !!}"><div class="blog_post_image"><img src="{!! asset('/storage/blog/'.$blog->pics) !!}" alt=""></div></a>
                                             <div class="blog_post_title"><h2><a href="/blog/{!! $blog->id !!}">{!! $blog->title !!}</a></h2></div>
                                             <div class="blog_post_info">
                                                 <ul class="d-flex flex-row align-items-start justify-content-start">
@@ -95,7 +94,7 @@
                                         @forelse($blogs as $blog)
                                         <!-- Latest News -->
                                         <div class="latest_news d-flex flex-row align-items-start justify-content-start">
-                                            <div class="latest_news_image"><img src="{!! asset('/storage/blog/'.$blog->pics) !!}" alt="https://unsplash.com/@dannykekspro"></div>
+                                            <a href="/blog/{!! $blog->id !!}"><div class="latest_news_image"><img src="{!! asset('/storage/blog/thumbnail/'.$blog->pics) !!}" alt=""></div></a>
                                             <div class="latest_news_content">
                                                 <div class="latest_news_date">{!! $blog->created_at->diffForHumans() !!}</div>
                                                 <div class="latest_news_title"><a href="/blog/{!! $blog->id !!}">{!! $blog->title !!}</a></div>

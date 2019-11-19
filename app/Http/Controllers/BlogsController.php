@@ -67,6 +67,8 @@ class BlogsController extends Controller
             if($blog->$pics != 'default.svg'){
                 // Delete Image
                 Storage::delete('public/'. $folder .'/'.$blog->$pics);
+                Storage::delete('public/'. $folder .'/thumbnail/'.$blog->$pics);
+                Storage::delete('public/'. $folder .'/large/'.$blog->$pics);
             }
             $filenameToStore = $this->updateImage($img_request, $img, $folder, $pics);
             $blog->$pics = $filenameToStore;
@@ -90,6 +92,8 @@ class BlogsController extends Controller
         if($blog->pics != 'default.svg'){
             // Delete Image
             Storage::delete('public/blog/'.$blog->pics);
+            Storage::delete('public/blog/thumbnail/'.$blog->pics);
+            Storage::delete('public/blog/large/'.$blog->pics);
         }
         return redirect(route('blog.index'))->with('success','Blog Deleted Successfully!');
     }
@@ -101,7 +105,7 @@ class BlogsController extends Controller
             'body' => 'required',
 
             'video' => 'sometimes',
-            'dj' => 'sometimes',
+            'producer' => 'sometimes',
         ]);
     }
 

@@ -6,6 +6,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Intervention\Image\Facades\Image;
 
 class Controller extends BaseController
 {
@@ -25,7 +26,14 @@ class Controller extends BaseController
             //remove space if exist
             $filenameToStore = str_replace(' ','_', $filenameToStor);
             //save in folder
-            request()->$pics->move(public_path('/storage/' . $folder), $filenameToStore);
+            /*request()->$pics->move(public_path('/storage/' . $folder), $filenameToStore);*/
+            // resize image and save in folder
+            $images = $img;
+            Image::make($images)->fit(500, 500)->save( public_path('/storage/' . $folder . '/' . $filenameToStore ) );
+            //create thumbnail save in app
+            Image::make($images)->fit(100, 100)->save( public_path('/storage/' . $folder . '/thumbnail/' . $filenameToStore ) );
+            //create Large
+            Image::make($images)->fit(1280, 720)->save( public_path('/storage/' . $folder . '/large/' . $filenameToStore ) );
         }else{
             $filenameToStore = 'default.svg';
         }
@@ -46,7 +54,14 @@ class Controller extends BaseController
             //remove space if exist
             $filenameToStore = str_replace(' ','_', $filenameToStor);
             //save in folder
-            request()->$pics->move(public_path('/storage/' . $folder), $filenameToStore);
+            /*request()->$pics->move(public_path('/storage/' . $folder), $filenameToStore);*/
+            // resize image and save in folder
+            $images = $img;
+            Image::make($images)->fit(500, 500)->save( public_path('/storage/' . $folder . '/' . $filenameToStore ) );
+            //update thumbnail save in app
+            Image::make($images)->fit(100, 100)->save( public_path('/storage/' . $folder . '/thumbnail/' . $filenameToStore ) );
+            //create Large
+            Image::make($images)->fit(1280, 720)->save( public_path('/storage/' . $folder . '/large/' . $filenameToStore ) );
         }
         return $filenameToStore;
     }

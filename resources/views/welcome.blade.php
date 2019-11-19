@@ -29,7 +29,7 @@
                     <div class="owl-carousel owl-theme home_slider">
                         <!-- Slide -->
                         <div class="owl-item">
-                            <div class="background_image" style="background-image:url({!! asset('/storage/images/index.jpg') !!})"></div>
+                            <div class="background_image" style="background-image:url({!! asset('/storage/images/index.svg') !!})"></div>
                             <div class="home_container">
                                 <div class="home_container_inner d-flex flex-column align-items-center justify-content-center">
                                     <div class="home_content text-center">
@@ -42,7 +42,7 @@
                         </div>
                         <!-- Slide -->
                         <div class="owl-item">
-                            <div class="background_image" style="background-image:url({!! asset('/storage/images/index.jpg') !!})"></div>
+                            <div class="background_image" style="background-image:url({!! asset('/storage/images/index.svg') !!})"></div>
                             <div class="home_container">
                                 <div class="home_container_inner d-flex flex-column align-items-center justify-content-center">
                                     <div class="home_content text-center">
@@ -55,7 +55,7 @@
                         </div>
                         <!-- Slide -->
                         <div class="owl-item">
-                            <div class="background_image" style="background-image:url({!! asset('/storage/images/index.jpg') !!})"></div>
+                            <div class="background_image" style="background-image:url({!! asset('/storage/images/index.svg') !!})"></div>
                             <div class="home_container">
                                 <div class="home_container_inner d-flex flex-column align-items-center justify-content-center">
                                     <div class="home_content text-center">
@@ -98,12 +98,19 @@
                                     @forelse($homes as $home)
                                         <!-- Show -->
                                         <li class="d-flex flex-row align-items-center justify-content-start">
-                                            <div><div class="show_date">{!! $home->date !!}</div></div>
+                                            <div><div class="show_date">{{ \Carbon\Carbon::parse($home->date)->format('M-d')}}</div></div>
                                             <div class="show_info d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-md-start justify-content-center">
-                                                <div class="show_name">{!! $home->title !!}</div>
+                                                @guest()
+                                                    <div class="show_name">{!! $home->title !!}</div>
+                                                @endguest
+                                                @auth()
+                                                    @if(Auth::user()->isAdmin === 1)
+                                                        <div class="show_name"><a href="/home/{!! $home->id !!}">{!! $home->title !!}</a></div>
+                                                    @endif
+                                                @endauth
                                                 <div class="show_location">{!! $home->place !!}</div>
                                             </div>
-                                            <div class="ml-auto"><div class="show_shop trans_200"><a href="{!! $home->url !!} " target="_blank" >Site</a></div></div>
+                                            <div class="ml-auto"><div class="show_shop trans_200"><a href="{!! $home->url !!}" target="_blank" >Site</a></div></div>
                                         </li>
                                     @empty
                                         <p>
@@ -117,7 +124,7 @@
                         <div class="col-lg-4 order-lg-2 order-1">
                             <div class="shows_image">
                                 <div class="image_overlay"></div>
-                                <img src="{!! asset('/storage/images/shows.jpg') !!}" alt="https://unsplash.com/@anthonydelanoix">
+                                <img src="{!! asset('/storage/images/party.svg') !!}" alt="">
                             </div>
                         </div>
                     </div>
@@ -146,7 +153,6 @@
                                        {!! $user->bio !!}
                                    </p>
                                 </div>
-                                <div class="artist_sig"><img src="{!! asset('/storage/images/sig.png') !!}" alt=""></div>
                                 <div class="single_player_container d-flex flex-column align-items-start justify-content-center">
                                     <div class="single_player">
                                         <div id="jplayer_2" class="jp-jplayer"></div>

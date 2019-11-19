@@ -31,7 +31,7 @@
                             </div>
 
                             <div class="form-group">
-                                <input type="text" value="{!! $blog->dj !!}" name="dj" placeholder="Dj" class="form-control">
+                                <input type="text" value="{!! $blog->producer !!}" name="producer" placeholder="Producer" class="form-control">
                             </div>
 
                             <div class="form-group">
@@ -41,7 +41,7 @@
                             <div class="form-group">
                                 <input type="file" name="pics" placeholder="Image" class="form-control">
                                 @if(!empty($blog))
-                                    <img src="/storage/blog/{!! $blog->pics !!}" style="width: 10%" alt="{!! $blog->title !!}">
+                                    <img src="/storage/blog/thumbnail/{!! $blog->pics !!}" alt="{!! $blog->title !!}">
                                 @endif
                             </div>
 

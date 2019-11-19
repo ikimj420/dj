@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Album;
 use App\Models\Video;
-use Illuminate\Http\Request;
 use App\Models\Blog;
 
 class TagsController extends Controller
@@ -14,7 +14,9 @@ class TagsController extends Controller
         $blogs = Blog::withAllTags([$tag])->get();
         //get all tag for blog
         $videos = Video::withAllTags([$tag])->get();
+        //get all tag for album
+        $albums = Album::withAllTags([$tag])->get();
 
-        return view('tags.index', compact('blogs', 'videos'));
+        return view('tags.index', compact('blogs', 'videos', 'albums'));
     }
 }

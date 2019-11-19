@@ -21,8 +21,8 @@ class CreateUsersTable extends Migration
             $table->boolean('isAdmin')->default(false);
             $table->text('bio')->nullable();
             $table->string('song')->nullable();
-            $table->string('pics')->nullable();
-            $table->string('pics2')->nullable();
+            $table->string('pics')->nullable()->default('default.svg');
+            $table->string('pics2')->nullable()->default('default.svg');
             $table->string('address')->nullable();
             $table->string('phones')->nullable();
             $table->timestamp('email_verified_at')->nullable();

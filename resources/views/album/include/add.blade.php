@@ -1,19 +1,19 @@
 @auth
     @if(Auth::user()->isAdmin === 1)
-        <button class="btn btn-success" type="button" data-toggle="modal" data-target="#add">Add New News</button>
+        <button class="btn btn-success" type="button" data-toggle="modal" data-target="#addAlbum">Add New Album</button>
     @endif
 @endauth
 <!-- Modal -->
-<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="addNewLabel" aria-hidden="true">
+<div class="modal fade" id="addAlbum" tabindex="-1" role="dialog" aria-labelledby="addAlbumNewLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="addNewLabel">Add New News</h5>
+                <h5 class="modal-title" id="addAlbumNewLabel">Add New Album</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form method="post" action="/blog" id="addNew" enctype="multipart/form-data">
+            <form method="post" action="{{ action('AlbumController@store') }}" id="addAlbum" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
 
@@ -22,24 +22,20 @@
                     </div>
 
                     <div class="form-group">
-                                    <textarea name="body" placeholder="Body" class="form-control">
+                        <input type="date" name="date" placeholder="Date" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" name="album_tag" placeholder="Tags" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                                    <textarea name="desc" placeholder="Description" class="form-control">
                                     </textarea>
                     </div>
 
                     <div class="form-group">
-                        <input type="text" name="video" placeholder="Video" class="form-control">
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" name="producer" placeholder="Producer" class="form-control">
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" name="blog_tag" placeholder="Tags" class="form-control">
-                    </div>
-
-                    <div class="form-group">
-                        <input type="file" name="pics" placeholder="Image" class="form-control">
+                        <input type="file" name="pics" placeholder="Images" class="form-control">
                     </div>
 
                 </div>

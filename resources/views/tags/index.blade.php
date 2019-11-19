@@ -25,12 +25,11 @@
 <!-- Home -->
     <div class="home">
         <div class="home_inner">
-            <!-- Image artist: https://unsplash.com/@yoannboyer -->
-            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{!! asset('/storage/images/blog.jpg') !!}" data-speed="0.8"></div>
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{!! asset('/storage/images/tags.svg') !!}" data-speed="0.8"></div>
             <div class="home_container">
                 <div class="home_content text-center">
-                    <div class="home_subtitle">Just me</div>
-                    <div class="home_title">The Tags</div>
+                    <div class="home_subtitle"></div>
+                    <div class="home_title">Tags</div>
                 </div>
             </div>
         </div>
@@ -52,7 +51,7 @@
                                         <div>{!! $blog->created_at->day !!}</div>
                                         <div>{!! $blog->created_at->year !!}</div>
                                     </div>
-                                    <div class="blog_post_image"><img src="{!! asset('/storage/blog/'.$blog->pics) !!}" alt="https://unsplash.com/@stevenerixon"></div>
+                                    <a href="/blog/{!! $blog->id !!}"><div class="blog_post_image"><img src="{!! asset('/storage/blog/'.$blog->pics) !!}" alt=""></div></a>
                                     <div class="blog_post_title"><h2><a href="/blog/{!! $blog->id !!}">{!! $blog->title !!}</a></h2></div>
                                     <div class="blog_post_info">
                                         <ul class="d-flex flex-row align-items-start justify-content-start">
@@ -71,7 +70,7 @@
                             <p>Noting To Show</p>
                         @endforelse
                     @endif
-                    @if(!empty($blogs))
+                    @if(!empty($videos))
                         @forelse($videos as $video)
                             <div class="blog_posts">
                                 <!-- Blog Post -->
@@ -81,12 +80,12 @@
                                         <div>{!! $video->created_at->day !!}</div>
                                         <div>{!! $video->created_at->year !!}</div>
                                     </div>
-                                    <div class="blog_post_image"><img src="{!! asset('/storage/images/blog_1.jpg') !!}" alt="https://unsplash.com/@stevenerixon"></div>
+                                    <a href="/video/{!! $video->id !!}"><div class="blog_post_image"><img src="{!! asset('/storage/images/video.svg') !!}" style="width: 500px;" alt=""></div></a>
                                     <div class="blog_post_title"><h2><a href="/video/{!! $video->id !!}">{!! $video->title !!}</a></h2></div>
                                     <div class="blog_post_info">
                                         <ul class="d-flex flex-row align-items-start justify-content-start">
                                             <li>by {!! $video->user->name !!}</li>
-                                            <li><a href="/video/{!! $blog->id !!}">{!! $video->comments->count() !!} Comments</a></li>
+                                            <li><a href="/video/{!! $video->id !!}">{!! $video->comments->count() !!} Comments</a></li>
                                         </ul>
                                     </div>
                                     <div class="blog_post_text">
@@ -100,42 +99,33 @@
                             <p>Noting To Show</p>
                         @endforelse
                     @endif
+                    @if(!empty($albums))
+                            @forelse($albums as $album)
+                                <div class="blog_posts">
+                                    <!-- Blog Post -->
+                                    <div class="blog_post">
+                                        <div class="blog_post_date d-flex flex-column align-items-center justify-content-center">
+                                            <div>{!! $album->created_at->monthName !!}</div>
+                                            <div>{!! $album->created_at->day !!}</div>
+                                            <div>{!! $album->created_at->year !!}</div>
+                                        </div>
+                                        <a href="/album/{!! $album->id !!}"><div class="blog_post_image"><img src="{!! asset('/storage/album/'.$album->pics) !!}" alt=""></div></a>
+                                        <div class="blog_post_title"><h2><a href="/album/{!! $album->id !!}">{!! $album->title !!}</a></h2></div>
+                                        <div class="blog_post_info">
+                                            <ul class="d-flex flex-row align-items-start justify-content-start"> </ul>
+                                        </div>
+                                        <div class="blog_post_text">
+                                            <p>
+                                                {!! Str::words($album->desc, 10, ' >>>') !!}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            @empty
+                                <p>Noting To Show</p>
+                            @endforelse
+                        @endif
                 </div>
-                <!-- Sidebar -->
-{{--                <div class="col-lg-3">
-                    <div class="sidebar">
-                        <div class="sidebar_section">
-                            <div class="sidebar_title">Tags</div>
-                            <div class="latest_news_list">
-                            @forelse($blogs as $blog)
-                                <!-- Latest News -->
-                                    <div class="latest_news d-flex flex-row align-items-start justify-content-start">
-                                        <div class="latest_news_image"><img src="{!! asset('/storage/blog/'.$blog->pics) !!}" alt="https://unsplash.com/@dannykekspro"></div>
-                                        <div class="latest_news_content">
-                                            <div class="latest_news_date">{!! $blog->created_at->diffForHumans() !!}</div>
-                                            <div class="latest_news_title"><a href="/blog/{!! $blog->id !!}">{!! $blog->title !!}</a></div>
-                                        </div>
-                                    </div>
-                                @empty
-                                    <p>Noting To Show</p>
-                                @endforelse
-
-                                @forelse($videos as $video)
-                                <!-- Latest News -->
-                                    <div class="latest_news d-flex flex-row align-items-start justify-content-start">
-                                        <div class="latest_news_image"><img src="{!! asset('/storage/images/blog_1.jpg') !!}" alt="https://unsplash.com/@dannykekspro"></div>
-                                        <div class="latest_news_content">
-                                            <div class="latest_news_date">{!! $video->date !!}</div>
-                                            <div class="latest_news_title"><a href="/video/{!! $video->id !!}">{!! $video->title !!}</a></div>
-                                        </div>
-                                    </div>
-                                @empty
-                                    <p>Noting To Show</p>
-                                @endforelse
-                            </div>
-                        </div>
-                    </div>
-                </div>--}}
             </div>
         </div>
     </div>

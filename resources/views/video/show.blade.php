@@ -25,12 +25,11 @@
 <!-- Home -->
     <div class="home">
         <div class="home_inner">
-            <!-- Image artist: https://unsplash.com/@yoannboyer -->
-            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{!! asset('/storage/images/single.jpg') !!}" data-speed="0.8"></div>
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{!! asset('/storage/images/player.svg') !!}" data-speed="0.8"></div>
             <div class="home_container">
                 <div class="home_content text-center">
-                    <div class="home_subtitle">Just me</div>
-                    <div class="home_title">The Video</div>
+                    <div class="home_subtitle"></div>
+                    <div class="home_title">{!! $video->title !!}</div>
                 </div>
             </div>
         </div>
@@ -67,7 +66,7 @@
                                         <span> Noting To Show</span>
                                     @endforelse
                                 </li>
-                                <li><span>Producer: </span>{!! $video->dj !!}</li>
+                                <li><span>Producer: </span>{!! $video->producer !!}</li>
                             </ul>
                         </div>
                     </div>

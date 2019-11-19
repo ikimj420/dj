@@ -77,7 +77,7 @@ class VideoController extends Controller
             'date' => 'required',
 
             'desc' => 'sometimes',
-            'dj' => 'sometimes',
+            'producer' => 'sometimes',
         ]);
     }
 
