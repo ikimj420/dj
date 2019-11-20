@@ -54,11 +54,11 @@
                 <!-- Single Info -->
                 <div class="col-lg-5">
                     <div class="single_info">
-                        <div class="single_image"><img src="{!! asset('/storage/images/blog_1.jpg') !!}" alt=""></div>
+                        <div class="single_image"><img src="{!! asset('/storage/images/video.svg') !!}" alt=""></div>
                         <div class="single_info_list">
                             <ul>
                                 <li><span>Title: </span>{!! $video->title !!}</li>
-                                <li><span>Release date: </span>{!! $video->date !!}</li>
+                                <li><span>Release date: </span>{{ \Carbon\Carbon::parse($video->date)->format('M-d- Y')}}</li>
                                 <li><span>Tags: </span>
                                     @forelse($video->tags as $tag)
                                         <a href="/tag/tags/{{ $tag }}"> <span>#{!! $tag->normalized !!}</span></a>
@@ -98,6 +98,7 @@
         </div>
     </div>
 
+    <!-- Comment -->
     <div class="video">
         <div class="container">
             @comments([

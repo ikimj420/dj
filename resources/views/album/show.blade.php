@@ -127,6 +127,16 @@
         </div>
     </div>
 
+    <!-- Comment -->
+    <div class="video">
+        <div class="container">
+            @comments([
+            'model' => $album,
+            'approved' => true
+            ])
+        </div>
+    </div>
+
     <!-- Footer -->
     @include('include.footer')
 

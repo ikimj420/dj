@@ -23,10 +23,7 @@ class HomeController extends Controller
     }
 
     public function show($id)
-    {        //check for blog user and if is admin
-        if(Auth::user()->isAdmin !== 1){
-            return redirect('/')->with('error', 'No No No');
-        }
+    {
         $home = Home::findOrFail($id);
         return view('home.show', compact('home'));
     }

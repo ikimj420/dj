@@ -29,10 +29,7 @@ class VideoController extends Controller
     }
 
     public function show($id)
-    {        //check for admin
-        if(Auth::user()->isAdmin !== 1){
-            return redirect('/')->with('error', 'No No No');
-        }
+    {
         $video = Video::findOrFail($id);
         return view('video.show', compact('video'));
     }

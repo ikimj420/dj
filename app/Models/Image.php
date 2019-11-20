@@ -3,11 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Laravelista\Comments\Commentable;
 
 class Image extends Model
 {
-    use Commentable;
 
     public $guarded = [];
 

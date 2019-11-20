@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>News</title>
+    <title>Tags</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Dj">
@@ -40,7 +40,7 @@
         <div class="container">
             <div class="row">
                 <!-- Blog Posts -->
-                <div class="col-lg-12">
+                <div class="col-lg-9">
                     @if(!empty($blogs))
                         @forelse($blogs as $blog)
                             <div class="blog_posts">
@@ -76,9 +76,9 @@
                                 <!-- Blog Post -->
                                 <div class="blog_post">
                                     <div class="blog_post_date d-flex flex-column align-items-center justify-content-center">
-                                        <div>{!! $video->created_at->monthName !!}</div>
-                                        <div>{!! $video->created_at->day !!}</div>
-                                        <div>{!! $video->created_at->year !!}</div>
+                                        <div>{{ \Carbon\Carbon::parse($video->date)->format('M')}}</div>
+                                        <div>{{ \Carbon\Carbon::parse($video->date)->format('d')}}</div>
+                                        <div>{{ \Carbon\Carbon::parse($video->date)->format('Y')}}</div>
                                     </div>
                                     <a href="/video/{!! $video->id !!}"><div class="blog_post_image"><img src="{!! asset('/storage/images/video.svg') !!}" style="width: 500px;" alt=""></div></a>
                                     <div class="blog_post_title"><h2><a href="/video/{!! $video->id !!}">{!! $video->title !!}</a></h2></div>
@@ -105,14 +105,17 @@
                                     <!-- Blog Post -->
                                     <div class="blog_post">
                                         <div class="blog_post_date d-flex flex-column align-items-center justify-content-center">
-                                            <div>{!! $album->created_at->monthName !!}</div>
-                                            <div>{!! $album->created_at->day !!}</div>
-                                            <div>{!! $album->created_at->year !!}</div>
+                                            <div>{{ \Carbon\Carbon::parse($album->date)->format('M')}}</div>
+                                            <div>{{ \Carbon\Carbon::parse($album->date)->format('d')}}</div>
+                                            <div>{{ \Carbon\Carbon::parse($album->date)->format('Y')}}</div>
                                         </div>
                                         <a href="/album/{!! $album->id !!}"><div class="blog_post_image"><img src="{!! asset('/storage/album/'.$album->pics) !!}" alt=""></div></a>
                                         <div class="blog_post_title"><h2><a href="/album/{!! $album->id !!}">{!! $album->title !!}</a></h2></div>
                                         <div class="blog_post_info">
-                                            <ul class="d-flex flex-row align-items-start justify-content-start"> </ul>
+                                            <ul class="d-flex flex-row align-items-start justify-content-start">
+                                                <li>by </li>
+                                                <li><a href="/album/{!! $album->id !!}">{!! $album->comments->count() !!} Comments</a></li>
+                                            </ul>
                                         </div>
                                         <div class="blog_post_text">
                                             <p>
@@ -125,6 +128,47 @@
                                 <p>Noting To Show</p>
                             @endforelse
                         @endif
+                </div>
+
+                <!-- Sidebar -->
+                <div class="col-lg-3">
+                    <div class="sidebar">
+                        <div class="sidebar_section">
+                            <div class="sidebar_title">Tags</div>
+                            <div class="latest_news_list">
+                            @forelse($blogs as $blog)
+                                <!-- Latest News -->
+                                    <div class="latest_news d-flex flex-row align-items-start justify-content-start">
+                                        <a href="/blog/{!! $blog->id !!}"><div class="latest_news_image"><img src="{!! asset('/storage/blog/thumbnail/'.$blog->pics) !!}" alt=""></div></a>
+                                        <div class="latest_news_content">
+                                            <div class="latest_news_title"><a href="/blog/{!! $blog->id !!}">{!! $blog->title !!}</a></div>
+                                        </div>
+                                    </div>
+                                @empty
+                                @endforelse
+                                @forelse($videos as $video)
+                                <!-- Latest News -->
+                                    <div class="latest_news d-flex flex-row align-items-start justify-content-start">
+                                        <a href="/video/{!! $video->id !!}"><div class="latest_news_image"><img src="{!! asset('/storage/images/video.svg') !!}" alt="" style="width: 55px; height: 55px;"></div></a>
+                                        <div class="latest_news_content">
+                                            <div class="latest_news_title"><a href="/blog/{!! $video->id !!}">{!! $video->title !!}</a></div>
+                                        </div>
+                                    </div>
+                                @empty
+                                @endforelse
+                                @forelse($albums as $album)
+                                <!-- Latest News -->
+                                    <div class="latest_news d-flex flex-row align-items-start justify-content-start">
+                                        <a href="/album/{!! $album->id !!}"><div class="latest_news_image"><img src="{!! asset('/storage/album/thumbnail/'.$album->pics) !!}" alt=""></div></a>
+                                        <div class="latest_news_content">
+                                            <div class="latest_news_title"><a href="/blog/{!! $album->id !!}">{!! $album->title !!}</a></div>
+                                        </div>
+                                    </div>
+                                @empty
+                                @endforelse
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
