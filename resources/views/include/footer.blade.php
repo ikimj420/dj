@@ -1,17 +1,6 @@
 <footer class="footer">
     <div class="footer_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
         <div class="newsletter_container">
-        @if (Route::has('login'))
-            <div class="container-fluid">
-            @auth
-                @else
-                    @include('auth.include.login')
-                @if (Route::has('register'))
-                    @include('auth.include.register')
-                @endif
-            @endauth
-            </div>
-        @endif
         </div>
     </div>
     <div class="copyright_bar">

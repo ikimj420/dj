@@ -26,7 +26,7 @@
     <div class="single">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-sm-12">
                     <div class="contact_form_container">
                 <div class="card-header">{{ __('Verify Your Email Address') }}</div>
 
