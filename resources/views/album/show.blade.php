@@ -23,14 +23,14 @@
     @include('include.menu')
 
     <!-- Home -->
-    <div class="home container-fluid">
+    <div class="album container-fluid">
         <div class="home_slider_container">
             <!-- Home Slider -->
             <div class="owl-carousel owl-theme home_slider">
                 @forelse($images as $image)
                 <!-- Slide -->
                 <div class="owl-item">
-                    <div class="background_image" style="background-image:url({!! asset('/storage/image/large/'.$image->pics) !!})"></div>
+                    <div class="background_image" style="background-image:url({!! asset('/storage/image/'.$image->pics) !!})"></div>
                     <div class="home_container">
                         <div class="home_container_inner d-flex flex-column align-items-center justify-content-center">
                             <div class="home_content text-center">
@@ -117,7 +117,6 @@
                                 @forelse($album->tags as $tag)
                                     <a href="/tag/tags/{{ $tag }}"> <span>#{!! $tag->normalized !!}</span></a>
                                 @empty
-                                    <span> Noting To Show</span>
                                 @endforelse
                             </li>
                         </ul>

@@ -20,11 +20,10 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->boolean('isAdmin')->default(false);
             $table->text('bio')->nullable();
-            $table->string('song')->nullable();
-            $table->string('pics')->nullable()->default('default.svg');
-            $table->string('pics2')->nullable()->default('default.svg');
+            $table->text('findMe')->nullable();
             $table->string('address')->nullable();
             $table->string('phones')->nullable();
+            $table->string('pics')->nullable()->default('default.svg');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

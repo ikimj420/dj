@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Blog</title>
+        <title>Dj</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="Dj">
@@ -62,7 +62,6 @@
                                             @forelse($blog->tags as $tag)
                                                 <a href="/tag/tags/{{ $tag }}"> <span>#{!! $tag->normalized !!}</span></a>
                                             @empty
-                                                <span> Noting To Show</span>
                                             @endforelse
                                         </li>
                                         <li><span>Producer: </span>{!! $blog->producer !!}</li>

@@ -8,6 +8,15 @@ use Illuminate\Support\Facades\Auth;
 
 class VideoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except('show');
+    }
+
+    public function index(){
+        return redirect('/');
+    }
+
     public function store(Request $request, Video $video)
     {
         //check for admin

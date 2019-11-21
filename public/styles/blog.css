@@ -605,6 +605,7 @@ section
 
 .home
 {
+    margin-top: 102px;
 	width: 100%;
 	height: 384px;
 	padding-left: 51px;
@@ -661,7 +662,6 @@ section
 {
 	position: absolute;
 	top: 0;
-	left: -78px;
 	width: 78px;
 	height: 134px;
 	background: #de4f32;

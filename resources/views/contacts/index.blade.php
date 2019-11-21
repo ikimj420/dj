@@ -35,10 +35,8 @@
                 </div>
             </div>
 
-            <div class="contact">
-                <div class="container-fluid">
-                    @include('include.flash-message')
-                </div>
+            <div class="container-fluid">
+                @include('include.flash-message')
             </div>
 
             <!-- Contact -->
@@ -63,7 +61,7 @@
                             <div class="contact_info">
                                 <div class="contact_title">Where to find me</div>
                                 <div class="contact_text">
-                                    <p>In vitae nisi aliquam, scelerisque leo a, volutpat sem. Vivamus rutrum dui fermentum eros hendrerit, id lobortis leo volutpat. Maecenas sollicitudin est in libero pretium interdum. Nullam volutpat dui sem, ac congue purus luctus nec. Curabitur luctus luctus erat, sit amet facilisis quam congue quis. Quisque ornare luctus erat id dignissim. Nullam ac nunc quis ex porttitor luctus.</p>
+                                    <p>{!! $user->findMe !!}</p>
                                 </div>
                                 <div class="contact_info_list">
                                     <ul>

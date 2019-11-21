@@ -29,12 +29,11 @@ class BlogsController extends Controller
         //add auth user
         $this->User($blog);
         //add pics
-        $pics = 'pics';
-        $img_request = $request->hasFile($pics);
-        $img = $request->file($pics);
+        $img_request = $request->hasFile('pics');
+        $img = $request->file('pics');
         $folder = 'blog';
-        $filenameToStore = $this->createImage($img_request, $img, $folder, $pics);
-        $blog->$pics = $filenameToStore;
+        $picture = $this->createImage($img_request, $img, $folder);
+        $blog->pics = $picture;
         //add tags
         $blog->tag($tags);
         //save blog in db
@@ -59,19 +58,17 @@ class BlogsController extends Controller
         $this->User($blog);
         //save picture
         $folder = 'blog';
-        $pics = 'pics';
-        $img_request = $request->hasFile($pics);
+        $img_request = $request->hasFile('pics');
         //check for picture
-        if(Request()->hasFile($pics)){
-            $img = Request()->file($pics);
-            if($blog->$pics != 'default.svg'){
+        if(Request()->hasFile('pics')){
+            $img = Request()->file('pics');
+            if($blog->pics != 'default.svg'){
                 // Delete Image
-                Storage::delete('public/'. $folder .'/'.$blog->$pics);
-                Storage::delete('public/'. $folder .'/thumbnail/'.$blog->$pics);
-                Storage::delete('public/'. $folder .'/large/'.$blog->$pics);
+                Storage::delete('public/'. $folder .'/'.$blog->pics);
+                Storage::delete('public/'. $folder .'/thumbnail/'.$blog->pics);
             }
-            $filenameToStore = $this->updateImage($img_request, $img, $folder, $pics);
-            $blog->$pics = $filenameToStore;
+            $picture = $this->updateImage($img_request, $img, $folder);
+            $blog->pics = $picture;
         }
         //update blog
         $blog->update($this->validateRequest());
@@ -93,7 +90,6 @@ class BlogsController extends Controller
             // Delete Image
             Storage::delete('public/blog/'.$blog->pics);
             Storage::delete('public/blog/thumbnail/'.$blog->pics);
-            Storage::delete('public/blog/large/'.$blog->pics);
         }
         return redirect(route('blog.index'))->with('success','Blog Deleted Successfully!');
     }

@@ -24,6 +24,17 @@
 
     <div class="shows">
         <div class="container-fluid">
+            <div class="home_title">
+                <h3>
+                    {!! $home->title !!}
+                </h3>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="shows">
+        <div class="container-fluid">
             @include('include.flash-message')
             <div class="col-sm-2 float-left">
                 @include('home.include.update')
@@ -33,6 +44,8 @@
             </div>
         </div>
     </div>
+
+    <div class="clear"></div>
 
 </div>
 

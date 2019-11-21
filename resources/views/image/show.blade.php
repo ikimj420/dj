@@ -23,7 +23,7 @@
 @include('include.menu')
 
 <!-- Home -->
-    <div class="container" style="margin-top: 120px;">
+    <div class="container" style="margin-top: 102px;">
         <div class="row">
             <div class="img-fluid">
                 <img src="{!! asset('/storage/image/thumbnail/'.$image->pics) !!}" alt="{!! $image->pics !!}">

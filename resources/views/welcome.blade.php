@@ -33,9 +33,8 @@
                             <div class="home_container">
                                 <div class="home_container_inner d-flex flex-column align-items-center justify-content-center">
                                     <div class="home_content text-center">
-                                        <div class="home_subtitle">New single release</div>
-                                        <div class="home_title"><h1>Love is all around</h1></div>
-                                        <div class="home_link"><a href="#">Listen on Soundcloud</a></div>
+                                        <div class="home_subtitle">Hello</div>
+                                        <div class="home_title"><h1>I'm</h1></div>
                                     </div>
                                 </div>
                             </div>
@@ -46,9 +45,7 @@
                             <div class="home_container">
                                 <div class="home_container_inner d-flex flex-column align-items-center justify-content-center">
                                     <div class="home_content text-center">
-                                        <div class="home_subtitle">New single release</div>
-                                        <div class="home_title"><h1>Love is all around</h1></div>
-                                        <div class="home_link"><a href="#">Listen on Soundcloud</a></div>
+                                        <div class="home_title"><h1>Dj</h1></div>
                                     </div>
                                 </div>
                             </div>
@@ -59,9 +56,8 @@
                             <div class="home_container">
                                 <div class="home_container_inner d-flex flex-column align-items-center justify-content-center">
                                     <div class="home_content text-center">
-                                        <div class="home_subtitle">New single release</div>
-                                        <div class="home_title"><h1>Love is all around</h1></div>
-                                        <div class="home_link"><a href="#">Listen on Soundcloud</a></div>
+                                        <div class="home_subtitle">Welcome</div>
+                                        <div class="home_title"><h1>To My Site</h1></div>
                                     </div>
                                 </div>
                             </div>
@@ -113,9 +109,6 @@
                                             <div class="ml-auto"><div class="show_shop trans_200"><a href="{!! $home->url !!}" target="_blank" >Site</a></div></div>
                                         </li>
                                     @empty
-                                        <p>
-                                            Noting To Show
-                                        </p>
                                     @endforelse
                                 </ul>
                             </div>
@@ -149,9 +142,6 @@
                                     <div class="section_title"><h1>{!! $user->name !!}</h1></div>
                                 </div>
                                 <div class="artist_text">
-                                   <p>
-                                       {!! $user->bio !!}
-                                   </p>
                                 </div>
                             </div>
                         </div>

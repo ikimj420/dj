@@ -67,7 +67,6 @@
                                 </div>
                             </div>
                         @empty
-                            <p>Noting To Show</p>
                         @endforelse
                     @endif
                     @if(!empty($videos))
@@ -96,7 +95,6 @@
                                 </div>
                             </div>
                         @empty
-                            <p>Noting To Show</p>
                         @endforelse
                     @endif
                     @if(!empty($albums))
@@ -125,7 +123,6 @@
                                     </div>
                                 </div>
                             @empty
-                                <p>Noting To Show</p>
                             @endforelse
                         @endif
                 </div>

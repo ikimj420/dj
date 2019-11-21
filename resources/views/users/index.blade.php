@@ -73,9 +73,6 @@
                                 </div>
                             </div>
                         @empty
-                            <p>
-                                Noting To Show
-                            </p>
                         @endforelse
                     </div>
                     <div class="load_more">
@@ -109,9 +106,6 @@
                                 </div>
                             </div>
                         @empty
-                            <p>
-                                Noting To Show
-                            </p>
                         @endforelse
                     </div>
                     <div class="load_more">
@@ -124,7 +118,7 @@
 
             <!-- Artist -->
             <div class="artist">
-                <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{!! asset('/storage/user/large/'.$user->pics2) !!}" data-speed="0.8"></div>
+                <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{!! asset('/storage/images/music.svg') !!}" data-speed="0.8"></div>
                 <div class="container">
                     <div class="row">
                         <!-- Artist Content -->

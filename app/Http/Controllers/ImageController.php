@@ -10,6 +10,15 @@ use Illuminate\Support\Facades\Storage;
 
 class ImageController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except('show');
+    }
+
+    public function index(){
+        return redirect('/');
+    }
+
     public function store(Request $request, User $user, Image $image)
     {
         //check for admin
@@ -19,12 +28,11 @@ class ImageController extends Controller
         //validate data and create without pics
         $image = Image::create($this->validateRequest());
         //add pics
-        $pics = 'pics';
-        $img_request = $request->hasFile($pics);
-        $img = $request->file($pics);
+        $img_request = $request->hasFile('pics');
+        $img = $request->file('pics');
         $folder = 'image';
-        $filenameToStore = $this->createImage($img_request, $img, $folder, $pics);
-        $image->$pics = $filenameToStore;
+        $icture = $this->createImage($img_request, $img, $folder);
+        $image->pics = $icture;
         //save in db
         $image->save();
         return back()->with('success','Image Created Successfully!');
@@ -43,19 +51,17 @@ class ImageController extends Controller
         }
         //save picture
         $folder = 'image';
-        $pics = 'pics';
-        $img_request = $request->hasFile($pics);
+        $img_request = $request->hasFile('pics');
         //check for picture
-        if(Request()->hasFile($pics)){
-            $img = Request()->file($pics);
-            if($image->$pics != 'default.svg'){
+        if(Request()->hasFile('pics')){
+            $img = Request()->file('pics');
+            if($image->pics != 'default.svg'){
                 // Delete Images
-                Storage::delete('public/'. $folder .'/'.$image->$pics);
-                Storage::delete('public/'. $folder .'/thumbnail/'.$image->$pics);
-                Storage::delete('public/'. $folder .'/large/'.$image->$pics);
+                Storage::delete('public/'. $folder .'/'.$image->pics);
+                Storage::delete('public/'. $folder .'/thumbnail/'.$image->pics);
             }
-            $filenameToStore = $this->updateImage($img_request, $img, $folder, $pics);
-            $image->$pics = $filenameToStore;
+            $picture = $this->updateImage($img_request, $img, $folder);
+            $image->pics = $picture;
         }
         //update
         $image->update($this->validateRequest());
@@ -76,7 +82,6 @@ class ImageController extends Controller
             // Delete Images
             Storage::delete('public/image/'.$image->pics);
             Storage::delete('public/image/thumbnail/'.$image->pics);
-            Storage::delete('public/image/large/'.$image->pics);
         }
         return redirect(route('users.index'))->with('success','Image Deleted Successfully!');
     }

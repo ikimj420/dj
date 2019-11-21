@@ -13,7 +13,7 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     // function for create image
-    public function createImage($img_request, $img, $folder, $pics){
+    public function createImage($img_request, $img, $folder){
         if($img_request){
             // Filename with extension
             $filenameWithExt = $img->getClientOriginalName();
@@ -24,24 +24,21 @@ class Controller extends BaseController
             // Filename to store
             $filenameToStor = $filename.'_'.time().'.'.$extension;
             //remove space if exist
-            $filenameToStore = str_replace(' ','_', $filenameToStor);
+            $pics = str_replace(' ','_', $filenameToStor);
             //save in folder
-            /*request()->$pics->move(public_path('/storage/' . $folder), $filenameToStore);*/
-            // resize image and save in folder
-            $images = $img;
-            Image::make($images)->fit(500, 500)->save( public_path('/storage/' . $folder . '/' . $filenameToStore ) );
+            $pictures = $img;
             //create thumbnail save in app
-            Image::make($images)->fit(100, 100)->save( public_path('/storage/' . $folder . '/thumbnail/' . $filenameToStore ) );
+            Image::make($pictures)->fit(100, 100)->save( public_path('storage/' . $folder . '/thumbnail/' . $pics ) );
             //create Large
-            Image::make($images)->fit(1280, 720)->save( public_path('/storage/' . $folder . '/large/' . $filenameToStore ) );
+            Image::make($pictures)->fit(1280, 720)->save( public_path('storage/' . $folder . '/' . $pics ) );
         }else{
-            $filenameToStore = 'default.svg';
+            $pics = 'default.svg';
         }
-        return $filenameToStore;
+        return $pics;
     }
 
     // function for update images
-    public function updateImage($img_request, $img, $folder, $pics){
+    public function updateImage($img_request, $img, $folder){
         if($img_request){
             // Filename with extension
             $filenameWithExt = $img->getClientOriginalName();
@@ -52,17 +49,14 @@ class Controller extends BaseController
             // Filename to store
             $filenameToStor = $filename.'_'.time().'.'.$extension;
             //remove space if exist
-            $filenameToStore = str_replace(' ','_', $filenameToStor);
+            $pics = str_replace(' ','_', $filenameToStor);
             //save in folder
-            /*request()->$pics->move(public_path('/storage/' . $folder), $filenameToStore);*/
-            // resize image and save in folder
-            $images = $img;
-            Image::make($images)->fit(500, 500)->save( public_path('/storage/' . $folder . '/' . $filenameToStore ) );
+            $pictures = $img;
             //update thumbnail save in app
-            Image::make($images)->fit(100, 100)->save( public_path('/storage/' . $folder . '/thumbnail/' . $filenameToStore ) );
+            Image::make($pictures)->fit(100, 100)->save( public_path('storage/' . $folder . '/thumbnail/' . $pics ) );
             //create Large
-            Image::make($images)->fit(1280, 720)->save( public_path('/storage/' . $folder . '/large/' . $filenameToStore ) );
+            Image::make($pictures)->fit(1280, 720)->save( public_path('storage/' . $folder . '/' . $pics ) );
         }
-        return $filenameToStore;
+        return $pics;
     }
 }

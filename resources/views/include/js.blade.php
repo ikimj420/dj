@@ -11,4 +11,3 @@
 <script src="{!! asset('plugins/progressbar/progressbar.min.js') !!}"></script>
 <script src="{!! asset('plugins/parallax-js-master/parallax.min.js') !!}"></script>
 <script src="{!! asset('plugins/jPlayer/jquery.jplayer.min.js') !!}"></script>
-<script src="{!! asset('plugins/jPlayer/jplayer.playlist.min.js') !!}"></script>

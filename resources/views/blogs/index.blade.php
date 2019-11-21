@@ -76,7 +76,6 @@
                                         </div>
                                     </div>
                                 @empty
-                                    <p>Noting To Show</p>
                                 @endforelse
                             @endif
                             <div class="load_more">
@@ -101,7 +100,6 @@
                                             </div>
                                         </div>
                                         @empty
-                                            <p>Noting To Show</p>
                                         @endforelse
                                     </div>
                                 </div>

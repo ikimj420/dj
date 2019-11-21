@@ -25,16 +25,6 @@
                             </div>
 
                             <div class="form-group">
-                                    <textarea name="bio" placeholder="Biography" class="form-control">
-                                        {!! $user->bio !!}
-                                    </textarea>
-                            </div>
-
-                            <div class="form-group">
-                                <input type="text" value="{!! $user->song !!}" name="song" placeholder="Favorite Song" class="form-control">
-                            </div>
-
-                            <div class="form-group">
                                 <input type="text" value="{!! $user->address !!}" name="address" placeholder="Address" class="form-control">
                             </div>
 
@@ -43,16 +33,21 @@
                             </div>
 
                             <div class="form-group">
-                                <input type="file" name="pics" placeholder="Image" class="form-control">
-                                @if(!empty($user))
-                                    <img src="/storage/user/{!! $user->pics !!}" style="width: 10%" alt="{!! $user->name !!}">
-                                @endif
+                                    <textarea name="bio" placeholder="Biography" class="form-control">
+                                        {!! $user->bio !!}
+                                    </textarea>
                             </div>
 
                             <div class="form-group">
-                                <input type="file" name="pics2" placeholder="Image2" class="form-control">
+                                    <textarea name="findMe" placeholder="Find Me" class="form-control">
+                                        {!! $user->findMe !!}
+                                    </textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="file" name="pics" placeholder="Image" class="form-control">
                                 @if(!empty($user))
-                                    <img src="/storage/user/{!! $user->pics2 !!}" style="width: 10%" alt="{!! $user->name !!}">
+                                    <img src="/storage/user/{!! $user->pics !!}" style="width: 10%" alt="{!! $user->name !!}">
                                 @endif
                             </div>
 

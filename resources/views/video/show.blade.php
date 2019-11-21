@@ -63,7 +63,6 @@
                                     @forelse($video->tags as $tag)
                                         <a href="/tag/tags/{{ $tag }}"> <span>#{!! $tag->normalized !!}</span></a>
                                     @empty
-                                        <span> Noting To Show</span>
                                     @endforelse
                                 </li>
                                 <li><span>Producer: </span>{!! $video->producer !!}</li>
@@ -114,7 +113,6 @@
 </div>
 
 @include('include.js')
-<script src="{!! asset('plugins/jPlayer/jplayer.playlist.min.js') !!}"></script>
 <script src="{!! asset('plugins/fit-vids/jquery.fitvids.js') !!}"></script>
 <script src="{!! asset('js/single.js') !!}"></script>
 </body>
